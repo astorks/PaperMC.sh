@@ -10,8 +10,8 @@ A single bash script to install/run a PaperMC server.<br />
 | MOJANG_EULA_AGREE         | --mojang-eula-agree | Set this environment variable to agree to the Mojang EULA | N/A |
 | PAPERMC_VERSION           | --version [version] | The minecraft version to download the latest PaperMC release. | 1.16.1 |
 | PAPERMC_JAR_NAME          | --jar-name [name] | The name of the PaperMC jar file. | paperclip.jar |
-| PAPERMC_MIN_MEMORY        | --min-memory [memory] | The minimum ammount of memory to allocate to the JVM. | 2G |
-| PAPERMC_MAX_MEMORY        | --max-memory [memory] | The maximum ammount of memory to allocate to the JVM. | 4G |
+| PAPERMC_START_MEMORY      | --start-memory [memory] | The minimum ammount of memory to allocate to the JVM. | 1G |
+| PAPERMC_MAX_MEMORY        | --max-memory [memory] | The maximum ammount of memory to allocate to the JVM. | 1G |
 | PAPERMC_HOST              | --host [ip-address] | The server ip address to bind to or 0.0.0.0 to bind to all addresses. | 0.0.0.0 |
 | PAPERMC_PORT              | --port [port] | The server port. | 25565 |
 | PAPERMC_MAX_PLAYERS       | --max-players [player-count] | The maximum amount of players that can connect to the server at once. | 20 |

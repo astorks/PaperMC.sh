@@ -8,11 +8,11 @@ fi
 if [ -z $PAPERMC_JAR_NAME ]; then
     PAPERMC_JAR_NAME="paperclip.jar"
 fi
-if [ -z $PAPERMC_MIN_MEMORY ]; then
-    PAPERMC_MIN_MEMORY="2G"
+if [ -z $PAPERMC_START_MEMORY ]; then
+    PAPERMC_START_MEMORY="1G"
 fi
 if [ -z $PAPERMC_MAX_MEMORY ]; then
-    PAPERMC_MAX_MEMORY="4G"
+    PAPERMC_MAX_MEMORY="1G"
 fi
 if [ -z $PAPERMC_HOST ]; then
     PAPERMC_HOST="0.0.0.0"
@@ -74,9 +74,9 @@ while (( "$#" )); do
         exit 1
       fi
       ;;
-    -ms|--min-memory)
+    -ms|--start-memory)
       if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
-        PAPERMC_MIN_MEMORY=$2
+        PAPERMC_START_MEMORY=$2
         shift 2
       else
         echo "ERROR: Argument for $1 is missing" >&2
@@ -169,8 +169,8 @@ function update_papermc() {
 }
 
 function start_papermc() {
-    echo "> java -Xms${PAPERMC_MIN_MEMORY} -Xmx${PAPERMC_MAX_MEMORY} ${PAPERMC_JAVA_ARGS} -Dcom.mojang.eula.agree=true -jar ${PAPERMC_JAR_NAME} -p ${PAPERMC_PORT} -h ${PAPERMC_HOST} -s ${PAPERMC_MAX_PLAYERS} -P ${PAPERMC_PLUGIN_DIR} -W ${PAPERMC_WORLD_DIR} ${PAPERMC_ARGS} ${PARAMS}"
-    java -Xms${PAPERMC_MIN_MEMORY} -Xmx${PAPERMC_MAX_MEMORY} ${PAPERMC_JAVA_ARGS} -Dcom.mojang.eula.agree=true -jar ${PAPERMC_JAR_NAME} -p ${PAPERMC_PORT} -h ${PAPERMC_HOST} -s ${PAPERMC_MAX_PLAYERS} -P ${PAPERMC_PLUGIN_DIR} -W ${PAPERMC_WORLD_DIR} ${PAPERMC_ARGS} ${PARAMS}
+    echo "> java -Xms${PAPERMC_START_MEMORY} -Xmx${PAPERMC_MAX_MEMORY} ${PAPERMC_JAVA_ARGS} -Dcom.mojang.eula.agree=true -jar ${PAPERMC_JAR_NAME} -p ${PAPERMC_PORT} -h ${PAPERMC_HOST} -s ${PAPERMC_MAX_PLAYERS} -P ${PAPERMC_PLUGIN_DIR} -W ${PAPERMC_WORLD_DIR} ${PAPERMC_ARGS} ${PARAMS}"
+    java -Xms${PAPERMC_START_MEMORY} -Xmx${PAPERMC_MAX_MEMORY} ${PAPERMC_JAVA_ARGS} -Dcom.mojang.eula.agree=true -jar ${PAPERMC_JAR_NAME} -p ${PAPERMC_PORT} -h ${PAPERMC_HOST} -s ${PAPERMC_MAX_PLAYERS} -P ${PAPERMC_PLUGIN_DIR} -W ${PAPERMC_WORLD_DIR} ${PAPERMC_ARGS} ${PARAMS}
 }
 
 if [ -z $AUTO_RESTART ]; then
