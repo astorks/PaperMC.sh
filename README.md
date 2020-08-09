@@ -24,7 +24,7 @@ A single bash script to install/run a PaperMC server.<br />
 ## Basic Example
 ```bash
 ~$ mkdir papermc && cd papermc
-~/papermc$ curl -s -o papermc.sh https://raw.githubusercontent.com/astorks/papermc.sh/master/papermc.sh
+~/papermc$ curl -s -o papermc.sh https://raw.githubusercontent.com/astorks/PaperMC.sh/master/papermc.sh
 ~/papermc$ chmod +x papermc.sh
 ~/papermc$ ./papermc.sh --mojang-eula-agree --version 1.16.1 --min-memory 1G --max-memory 1G
 ```
