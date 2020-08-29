@@ -1,9 +1,7 @@
 #!/bin/bash
-# cd ~ && mkdir papermc && cd papermc && echo "$(</dev/stdin)" > papermc.sh
-# ./papermc.sh -r -i -e -ms 1G -mx 1G 
 
 if [ -z $PAPERMC_VERSION ]; then
-    PAPERMC_VERSION="1.16.1"
+    PAPERMC_VERSION="1.16.2"
 fi
 if [ -z $PAPERMC_JAR_NAME ]; then
     PAPERMC_JAR_NAME="paperclip.jar"
