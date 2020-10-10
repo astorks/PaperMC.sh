@@ -1,7 +1,7 @@
 # PaperMC.sh
 
 ![License](https://img.shields.io/github/license/astorks/papermc.sh?style=for-the-badge)
-[![PaperMC](https://img.shields.io/badge/PaperMC-v1.16.2-blue?style=for-the-badge)]()
+[![PaperMC](https://img.shields.io/badge/PaperMC-v1.16.3-blue?style=for-the-badge)]()
 
 A single bash script to install/run a PaperMC server.<br />
 
@@ -9,7 +9,7 @@ A single bash script to install/run a PaperMC server.<br />
 | Name                      | Argument | Description | Default Value |
 | ------------------------- | -------- | ------------| ------------- |
 | MOJANG_EULA_AGREE         | --mojang-eula-agree | Set this environment variable to agree to the Mojang EULA | N/A |
-| PAPERMC_VERSION           | --version [version] | The minecraft version to download the latest PaperMC release. | 1.16.2 |
+| PAPERMC_VERSION           | --version [version] | The minecraft version to download the latest PaperMC release. | 1.16.3 |
 | PAPERMC_JAR_NAME          | --jar-name [name] | The name of the PaperMC jar file. | paperclip.jar |
 | PAPERMC_START_MEMORY      | --start-memory [memory] | The minimum ammount of memory to allocate to the JVM. | 1G |
 | PAPERMC_MAX_MEMORY        | --max-memory [memory] | The maximum ammount of memory to allocate to the JVM. | 1G |
@@ -27,10 +27,10 @@ A single bash script to install/run a PaperMC server.<br />
 ~$ mkdir papermc && cd papermc
 ~/papermc$ curl -s -o papermc.sh https://raw.githubusercontent.com/astorks/PaperMC.sh/master/papermc.sh
 ~/papermc$ chmod +x papermc.sh
-~/papermc$ ./papermc.sh --mojang-eula-agree --version 1.16.2 --min-memory 1G --max-memory 1G
+~/papermc$ ./papermc.sh --mojang-eula-agree --version 1.16.3 --min-memory 1G --max-memory 1G
 ```
 
 ## Docker Example
 ```bash
-~$ docker run -v papermc:/var/opt/papermc -p 25565:25565 -e MOJANG_EULA_AGREE=1 -e PAPERMC_VERSION=1.16.2 -e PAPERMC_MIN_MEMORY=1G -e PAPERMC_MAX_MEMORY=1G -it astorks/papermc.sh:latest
+~$ docker run -v papermc:/var/opt/papermc -p 25565:25565 -e MOJANG_EULA_AGREE=1 -e PAPERMC_VERSION=1.16.3 -e PAPERMC_MIN_MEMORY=1G -e PAPERMC_MAX_MEMORY=1G -it astorks/papermc.sh:latest
 ```

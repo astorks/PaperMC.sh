@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z $PAPERMC_VERSION ]; then
-    PAPERMC_VERSION="1.16.2"
+    PAPERMC_VERSION="1.16.3"
 fi
 if [ -z $PAPERMC_JAR_NAME ]; then
     PAPERMC_JAR_NAME="paperclip.jar"
