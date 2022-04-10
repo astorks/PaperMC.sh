@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z $PAPERMC_VERSION ]; then
-    PAPERMC_VERSION="1.16.3"
+    PAPERMC_VERSION="1.18.1"
 fi
 if [ -z $PAPERMC_JAR_NAME ]; then
     PAPERMC_JAR_NAME="paperclip.jar"
@@ -130,7 +130,10 @@ done
 
 eval set -- "$PARAMS"
 
-PAPERMC_DOWNLOAD_URL="https://papermc.io/api/v1/paper/${PAPERMC_VERSION}/latest/download"
+LATEST_BUILD=$(curl -s "https://papermc.io/api/v2/projects/paper/versions/${PAPERMC_VERSION}" | jq '.builds[-1]')
+LATEST_DOWNLOAD=$(curl -s "https://papermc.io/api/v2/projects/paper/versions/${PAPERMC_VERSION}/builds/${LATEST_BUILD}" | jq '.downloads.application.name' -r)
+
+PAPERMC_DOWNLOAD_URL="https://papermc.io/api/v2/projects/paper/versions/${PAPERMC_VERSION}/builds/${LATEST_BUILD}/downloads/${LATEST_DOWNLOAD}"
 
 if [ -z $MOJANG_EULA_AGREE ]; then
     echo "ERROR: You must agree to the mojang EULA by passing the \"--mojang-eula-agree\" flag or by setting the environment variable \"MOJANG_EULA_AGREE=1\"."
@@ -173,13 +176,13 @@ function start_papermc() {
 
 if [ -z $AUTO_RESTART ]; then
     update_papermc
-
+    
     echo "Starting PaperMC Server..."
     start_papermc
 else
     while [ -z $PAPERMC_SHUTDOWN ]; do 
         update_papermc
-
+	  
         echo "Starting PaperMC Server, Auto-Restart Enabled..."
         start_papermc
         sleep 3
