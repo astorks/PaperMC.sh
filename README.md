@@ -1,7 +1,7 @@
 # PaperMC.sh
 
 ![License](https://img.shields.io/github/license/astorks/papermc.sh?style=for-the-badge)
-[![PaperMC](https://img.shields.io/badge/PaperMC-v1.16.3-blue?style=for-the-badge)]()
+[![PaperMC](https://img.shields.io/badge/PaperMC-v1.18.1-blue?style=for-the-badge)]()
 
 A single bash script to install/run a PaperMC server.<br />
 
